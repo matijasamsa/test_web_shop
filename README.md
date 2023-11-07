@@ -1,3 +1,3 @@
 # test_web_shop
 
-Repozitorij z apotrebe kolegija programiranje za internet.
+Repozitorij za potrebe kolegija programiranje za internet.
