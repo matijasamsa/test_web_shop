@@ -23,6 +23,17 @@
     <div class="w3-container">
     <h1>Web shop - mobiteli</h1>    
     <p></p>
+    <?php
+     $server = "localhost";
+     $database = "pzi";
+     $username = "root";
+     $password = "";
+
+     $conn = mysqli_connect($server,$username,$password,$database);
+     $query = "SELECT* FROM mobiteli";
+     $res = mysqli_query($conn,$query);
+
+    ?>
     <div>Popis svih mobitela:
         <table class="w3-table-all">
             <tr class="w3-red">
@@ -33,6 +44,21 @@
                 <th>Slika</th>
                 <th>Cijena</th>
             </tr>
+            <?php
+             while($row = mysqli_fetch_array($res)){
+                 echo "<tr>";
+                 echo "<td>".$row['id']."</td>";
+                 echo "<td>".$row['naziv']."</td>";
+                 echo "<td>".$row['proizvodjac']."</td>";
+                 echo "<td>".$row['opis']."</td>";
+                 echo "<td><img src='".$row['slika']."'  width='100px' ></td>";
+                 echo "<td>".$row['cijena']."</td>";
+                 echo "<tr>";
+             }
+             mysqli_close($conn);
+
+
+            ?>
             <tr>
                 <td>1.</td>
                 <td>Galaxy Z Flip5</td>
